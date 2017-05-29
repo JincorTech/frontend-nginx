@@ -1,0 +1,10 @@
+version: '3'
+services:
+
+  frontend_server:
+    image: registry.jincor.com/frontend/nginx:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
