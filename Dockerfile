@@ -1,7 +1,12 @@
 FROM smebberson/alpine-nginx
 
 ADD ./config/nginx.conf /etc/nginx/
-COPY ./config/sites/*.conf /etc/nginx/sites-available/
+
+ARG CONF_PATTERN=frontend*
+ENV CONF_PATTERN ${CONF_PATTERN}
+
+
+COPY ./config/sites/${CONF_PATTERN} /etc/nginx/sites-available/
 
 VOLUME /var/apps/cmp
 VOLUME /var/apps/msg
