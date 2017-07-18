@@ -6,6 +6,7 @@ COPY ./config/sites/*.conf /etc/nginx/sites-available/
 VOLUME /var/apps/cmp
 VOLUME /var/apps/msg
 VOLUME /var/apps/landing
+VOLUME /var/apps/ico
 
 RUN apk update \
     && apk upgrade \
