@@ -5,6 +5,8 @@ services:
     volumes:
       - ./ico/dist:/var/apps/ico
       - ./landing/dist:/var/apps/landing
+    environment:
+      API_HOST: "http://178.79.145.122:8080"
     ports:
       - 443:443
       - 80:80

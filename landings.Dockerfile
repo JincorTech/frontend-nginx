@@ -8,11 +8,12 @@ VOLUME /var/apps/acme/.well-known
 
 ADD ./config/nginx.conf /etc/nginx/
 ADD ./enable.ssl.sh /etc/nginx/
-RUN chmod +x /etc/nginx/enable.ssl.sh
+COPY ./start.landings.sh /etc/services.d/nginx/run
 
 COPY ./config/includes /etc/nginx/includes
 COPY ./config/sites /etc/nginx/sites
 COPY ./config/ssl /etc/nginx/ssl
+COPY ./config/templates /etc/nginx/templates
 
 RUN mkdir /etc/nginx/sites-available
 RUN ln -s /etc/nginx/sites/api.jincor.com.conf /etc/nginx/sites-available/api.jincor.com.conf
