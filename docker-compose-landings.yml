@@ -1,0 +1,10 @@
+version: '2'
+services:
+  nginx:
+    image: registry.jincor.com/frontend/landings-production:latest
+    volumes:
+      - ./ico/dist:/var/apps/ico
+      - ./landing/dist:/var/apps/landing
+    ports:
+      - 443:443
+      - 80:80
