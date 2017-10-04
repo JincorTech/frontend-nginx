@@ -2,11 +2,16 @@ version: '2'
 services:
   nginx:
     image: registry.jincor.com/frontend/landings-production:latest
-    volumes:
-      - ./ico/dist:/var/apps/ico
-      - ./landing/dist:/var/apps/landing
+    build:
+      context: ./
+      dockerfile: landings.Dockerfile
     environment:
-      API_HOST: "http://178.79.145.122:8080"
+      API_HOST: "http://172.104.143.86:8080"
     ports:
       - 443:443
       - 80:80
+
+  laughing-robot:
+    image: registry.jincor.com/frontend/laughing-robot-production:latest
+    ports:
+      - 3000

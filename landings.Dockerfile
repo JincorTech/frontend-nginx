@@ -2,8 +2,6 @@ FROM smebberson/alpine-nginx
 
 VOLUME /var/apps/cmp
 VOLUME /var/apps/msg
-VOLUME /var/apps/landing
-VOLUME /var/apps/ico
 VOLUME /var/apps/acme/.well-known
 
 ADD ./config/nginx.conf /etc/nginx/
@@ -17,7 +15,6 @@ COPY ./config/templates /etc/nginx/templates
 
 RUN mkdir /etc/nginx/sites-available
 RUN ln -s /etc/nginx/sites/api.jincor.com.conf /etc/nginx/sites-available/api.jincor.com.conf
-RUN ln -s /etc/nginx/sites/ico.jincor.com.conf /etc/nginx/sites-available/ico.jincor.com.conf
 RUN ln -s /etc/nginx/sites/www.jincor.com.conf /etc/nginx/sites-available/www.jincor.com.conf
 RUN ln -s /etc/nginx/sites/jincor.com.conf /etc/nginx/sites-available/jincor.com.conf
 
